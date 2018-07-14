@@ -11,12 +11,11 @@ public class EMF {
         emf = Persistence.createEntityManagerFactory("jpastart");
     }
 
-    public static EntityManager createEmtityManager() {
+    public static EntityManager createEntityManager() {
         return emf.createEntityManager();
     }
 
     public static void close() {
         emf.close();
-
     }
 }
