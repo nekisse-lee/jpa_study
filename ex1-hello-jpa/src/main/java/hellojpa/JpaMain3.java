@@ -1,5 +1,7 @@
 package hellojpa;
 
+import jdk.nashorn.internal.ir.annotations.Ignore;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -20,7 +22,7 @@ public class JpaMain3 {
 
             //영속
             Member member = em.find(Member.class, 150L);
-            member.setName("ZZZZZ");
+//            member.setName("ZZZZZ");
 
 
 

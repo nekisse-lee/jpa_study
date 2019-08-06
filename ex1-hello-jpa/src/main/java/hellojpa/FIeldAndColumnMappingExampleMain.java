@@ -6,7 +6,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 @SuppressWarnings("ALL")
-public class FlushExamMain1 {
+public class FIeldAndColumnMappingExampleMain {
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");
 
@@ -17,16 +17,15 @@ public class FlushExamMain1 {
 
         //code
         try {
-            //영속
-//            Member member = new Member(200L, "membr200");
 
-//            em.persist(member);
+            Member member = new Member();
+            member.setId(3L);
+            member.setUserName("C");
+            member.setRoleType(RoleType.GUEST);
 
-            em.flush();  // commit 시점이 아닌 즉시 실행
+            em.persist(member);
 
-            System.out.println("============ commit 전=============");
             tx.commit();
-            System.out.println("============ commit 후 ============");
         } catch (Exception e) {
             tx.rollback();
         } finally {
