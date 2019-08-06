@@ -1,20 +1,27 @@
 package hellojpa;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+//@Entity(name = "MBR")
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 public class Member {
 
     @Id
     private Long id;
 
+    @Column(unique = false, length = 10)
     private String name;
+
+
+    public Member() {
+    }
+
+    public Member(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     public Long getId() {
         return id;
