@@ -5,8 +5,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.util.List;
 
-public class Member4Main {
+public class ManyToOneExamMain {
     public static void main(String[] args) {
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");
@@ -33,14 +34,10 @@ public class Member4Main {
 
             Member4 findMember4 = em.find(Member4.class, member.getId());
 
-//            Long findTeamId = findMember4.getTeamId();
-            Team findTeam = findMember4.getTeam();
-            System.out.println("findTeam.getName() = " + findTeam.getName());
-//            Team findTeam1 = em.find(Team.class, findTeamId);
-
-            Team newTeam = em.find(Team.class, 100L);
-//            findMember4.changeTeam(newTeam);
-
+            List<Member4> member4s = findMember4.getTeam().getMember4s();
+            for (Member4 member4 : member4s) {
+                System.out.println("member4.getUsername() = " + member4.getUsername());
+            }
             tx.commit();
         } catch (Exception e) {
             tx.rollback();

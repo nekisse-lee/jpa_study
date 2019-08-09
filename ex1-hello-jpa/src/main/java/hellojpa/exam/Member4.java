@@ -43,4 +43,20 @@ public class Member4 {
     public void setTeam(Team team) {
         this.team = team;
     }
+
+    @Override
+    public String toString() {
+        return "Member4{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", team=" + team +
+                '}';
+    }
+
+    // *1 , *2 를 같은 곳에서 세팅    연관관계 편의메서
+//    public void setTeam(Team team) {
+//    public void changeTeam(Team team) {
+//        this.team = team;
+//        team.getMember4s().add(this);
+//    }
 }
