@@ -18,30 +18,24 @@ public class Member4Main {
 
         //code
         try {
-            //저장
-            Team team = new Team();
-            team.setName("TeamA");
-            em.persist(team);
+            Movie movie = new Movie();
+            movie.setDirector("aaaa");
+            movie.setActor("bbbb");
+            movie.setName("바람과함께사라지다");
+            movie.setPrice(10000);
 
-            Member4 member = new Member4();
-            member.setUsername("member1");
-//            member.changeTeam(team);
-            em.persist(member);
+            em.persist(movie);
 
             em.flush();
             em.clear();
 
-            Member4 findMember4 = em.find(Member4.class, member.getId());
-
-//            Long findTeamId = findMember4.getTeamId();
-            Team findTeam = findMember4.getTeam();
-            System.out.println("findTeam.getName() = " + findTeam.getName());
-//            Team findTeam1 = em.find(Team.class, findTeamId);
-
-            Team newTeam = em.find(Team.class, 100L);
-//            findMember4.changeTeam(newTeam);
+//            Movie findMovie = em.find(Movie.class, movie.getId());
+            Item item = em.find(Item.class, movie.getId());
+//            System.out.println("findMovie = " + findMovie);
+            System.out.println("item = " + item);
 
             tx.commit();
+
         } catch (Exception e) {
             tx.rollback();
         } finally {
