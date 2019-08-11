@@ -6,7 +6,11 @@ import java.util.List;
 import java.util.stream.Stream;
 
 @Entity
-public class Item {
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+//@Inheritance(strategy = InheritanceType.JOINED)
+//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@DiscriminatorColumn
+public abstract class Item  extends BaseEntity{
 
     @Id
     @GeneratedValue
