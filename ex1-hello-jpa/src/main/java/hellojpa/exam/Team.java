@@ -1,11 +1,12 @@
 package hellojpa.exam;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Team {
+public class Team  extends BaseEntity{
 
     @Id
     @GeneratedValue
@@ -15,6 +16,14 @@ public class Team {
 
     @OneToMany(mappedBy = "team")
     private List<Member4> member4s = new ArrayList<>();
+
+    private String createdBy;
+
+    private LocalDateTime createdDate;
+
+    private String lastModifiedBy;
+
+    private LocalDateTime lastModifiedDate;
 
     public void addMember(Member4 member) {
         member.setTeam(this);
