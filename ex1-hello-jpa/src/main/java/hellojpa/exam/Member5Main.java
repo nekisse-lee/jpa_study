@@ -1,11 +1,11 @@
 package hellojpa.exam;
 
 
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import java.time.LocalDateTime;
 
 public class Member5Main {
     public static void main(String[] args) {
@@ -19,16 +19,19 @@ public class Member5Main {
 
         //code
         try {
-
             Member5 member5 = new Member5();
-            member5.setUsername("user1");
-            member5.setCreatedBy("kim");
-            member5.setCreatedDate(LocalDateTime.now());
+            member5.setUsername("hello");
 
             em.persist(member5);
-
             em.flush();
             em.clear();
+
+            //
+
+            Member5 findMember = em.find(Member5.class, member5.getId());
+            System.out.println("findMember.getId() = " + findMember.getId());
+            System.out.println("findMember.getUsername() = " + findMember.getUsername());
+
 
             tx.commit();
         } catch (Exception e) {
@@ -39,4 +42,6 @@ public class Member5Main {
 
         emf.close();
     }
+
+
 }

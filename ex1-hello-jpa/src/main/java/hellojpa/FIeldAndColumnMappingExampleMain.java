@@ -18,7 +18,7 @@ public class FIeldAndColumnMappingExampleMain {
         //code
         try {
 
-            Member member = new Member();
+            Member5 member = new Member5();
             member.setId(3L);
             member.setUserName("C");
             member.setRoleType(RoleType.GUEST);

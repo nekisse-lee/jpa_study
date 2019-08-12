@@ -1,6 +1,6 @@
 package hellojpa;
 
-import jdk.nashorn.internal.ir.annotations.Ignore;
+import hellojpa.exam.Member5;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -21,7 +21,7 @@ public class JpaMain3 {
         try {
 
             //영속
-            Member member = em.find(Member.class, 150L);
+            Member5 member = em.find(Member5.class, 150L);
 //            member.setName("ZZZZZ");
 
 

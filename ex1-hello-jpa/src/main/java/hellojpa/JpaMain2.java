@@ -4,7 +4,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import java.util.List;
 
 public class JpaMain2 {
     public static void main(String[] args) {
@@ -26,8 +25,8 @@ public class JpaMain2 {
 //            System.out.println(" === BEFORE ===");
 //            em.persist(member);
 //            System.out.println(" === AFTER ===");
-            Member findMember1 = em.find(Member.class, 101L);
-            Member findMember2 = em.find(Member.class, 101L);
+            Member5 findMember1 = em.find(Member5.class, 101L);
+            Member5 findMember2 = em.find(Member5.class, 101L);
             System.out.println("findMember1==findMember2 = " + (findMember1==findMember2));
 //            System.out.println("findMember.getId() = " + findMember.getId());
 //            System.out.println("findMember.getName() = " + findMember.getName());

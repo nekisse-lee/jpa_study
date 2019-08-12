@@ -22,12 +22,12 @@ public class JpaMain {
 //            member.setName("HelloB");
 
 //            Member findMember = em.find(Member.class, 1L);
-            List<Member> result = em.createQuery("select m from Member4 as m", Member.class)
+            List<Member5> result = em.createQuery("select m from Member5 as m", Member5.class)
                 .setFirstResult(5)
                 .setMaxResults(8)
                 .getResultList();
 
-            for (Member member : result) {
+            for (Member5 member : result) {
 //                System.out.println("member.getName() = " + member.getName());
             }
 

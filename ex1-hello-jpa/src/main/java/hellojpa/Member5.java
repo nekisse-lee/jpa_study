@@ -7,7 +7,7 @@ import java.util.Date;
 
 //@Entity(name = "MBR")
 @Entity
-public class Member {
+public class Member5 {
 
     @Id
     private Long id;
@@ -17,7 +17,7 @@ public class Member {
 
     private Integer age;
 
-    @Enumerated (EnumType.STRING)
+    @Enumerated(EnumType.STRING)
     private RoleType roleType;
 
     @Temporal(TemporalType.TIMESTAMP)
@@ -36,7 +36,16 @@ public class Member {
 
     private LocalDateTime testLocalDateTime;
 
-    public Member() {
+    public Member5() {
+    }
+
+
+    public LocalDate getTestLocalDate() {
+        return testLocalDate;
+    }
+
+    public LocalDateTime getTestLocalDateTime() {
+        return testLocalDateTime;
     }
 
     public Long getId() {
