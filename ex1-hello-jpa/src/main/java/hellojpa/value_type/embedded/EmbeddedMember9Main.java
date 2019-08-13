@@ -1,14 +1,10 @@
-package hellojpa.value_type;
+package hellojpa.value_type.embedded;
 
-
-import hellojpa.exam.Team;
-import hellojpa.exam.lazy_loading.Member7;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import java.util.List;
 
 public class EmbeddedMember9Main {
     public static void main(String[] args) {

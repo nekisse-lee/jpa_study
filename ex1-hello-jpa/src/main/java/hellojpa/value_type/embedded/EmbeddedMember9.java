@@ -1,7 +1,6 @@
-package hellojpa.value_type;
+package hellojpa.value_type.embedded;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
 public class EmbeddedMember9 {
