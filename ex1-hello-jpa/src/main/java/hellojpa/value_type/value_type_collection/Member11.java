@@ -29,10 +29,14 @@ public class Member11 {
     @Column(name = "FOOD_NAME ")
     private Set<String> favoriteFoods = new HashSet<>();
 
-    @ElementCollection
-    @CollectionTable(name = "ADDRESS11" , joinColumns =
-    @JoinColumn(name = "MEMBER_ID"))
-    private List<Address11> addressHistory = new ArrayList<>();
+//    @ElementCollection
+//    @CollectionTable(name = "ADDRESS11" , joinColumns =
+//    @JoinColumn(name = "MEMBER_ID"))
+//    private List<Address11> addressHistory = new ArrayList<>();
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "MEMBER_ID")
+    private List<Address11Entity> addressHistory = new ArrayList<>();
 
 
     public Address11 getHomeAddress() {
@@ -51,11 +55,20 @@ public class Member11 {
         this.favoriteFoods = favoriteFoods;
     }
 
-    public List<Address11> getAddressHistory() {
+//    public List<Address11> getAddressHistory() {
+//        return addressHistory;
+//    }
+//
+//    public void setAddressHistory(List<Address11> addressHistory) {
+//        this.addressHistory = addressHistory;
+//    }
+
+
+    public List<Address11Entity> getAddressHistory() {
         return addressHistory;
     }
 
-    public void setAddressHistory(List<Address11> addressHistory) {
+    public void setAddressHistory(List<Address11Entity> addressHistory) {
         this.addressHistory = addressHistory;
     }
 

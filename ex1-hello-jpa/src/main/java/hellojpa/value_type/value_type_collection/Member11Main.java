@@ -34,8 +34,11 @@ public class Member11Main {
             member.getFavoriteFoods().add("피자");
 
 
-            member.getAddressHistory().add(new Address11("old1", "street", "10000"));
-            member.getAddressHistory().add(new Address11("old2", "street", "10000"));
+//            member.getAddressHistory().add(new Address11("old1", "street", "10000"));
+//            member.getAddressHistory().add(new Address11("old2", "street", "10000"));
+
+            member.getAddressHistory().add(new Address11Entity("old1", "street", "10000"));
+            member.getAddressHistory().add(new Address11Entity("old2", "street", "10000"));
 
             em.persist(member);
 
@@ -57,10 +60,10 @@ public class Member11Main {
 
             //old1 -> new1
             // equals 사용으로 remove
-            System.out.println("==========AddressHistory==========");
-            findMember.getAddressHistory().remove(new Address11("old1", "street", "10000"));
-            findMember.getAddressHistory().add(new Address11("newCity1", "street", "10000"));
-            System.out.println("==========AddressHistory==========");
+//            System.out.println("==========AddressHistory==========");
+//            findMember.getAddressHistory().remove(new Address11("old1", "street", "10000"));
+//            findMember.getAddressHistory().add(new Address11("newCity1", "street", "10000"));
+//            System.out.println("==========AddressHistory==========");
 
 //            List<Address11> addressHistory = findMember.getAddressHistory();
 //            for (Address11 address : addressHistory) {
