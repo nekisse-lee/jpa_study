@@ -2,6 +2,8 @@ package jpql;
 
 
 import jpql.domain.Member;
+import jpql.domain.MemberType;
+import jpql.domain.Team;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -9,7 +11,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.util.List;
 
-public class JpqlMain3Paging {
+public class JpqlMain4 {
     public static void main(String[] args) {
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");
@@ -21,25 +23,37 @@ public class JpqlMain3Paging {
 
         //code
         try {
-            for (int i = 0; i < 100; i++) {
+            Team team = new Team();
+            team.setName("teamA");
+            em.persist(team);
+
             Member member = new Member();
-            member.setUsername("member" + i);
-            member.setAge(i);
+            member.setUsername("teamA");
+            member.setAge(10);
+
+            member.setTeam(team);
+            member.setType(MemberType.ADMIN);
+
             em.persist(member);
-            }
+
 
             em.flush();
             em.clear();
 
-            List<Member> result = em.createQuery("select  m from Member m order by m.age desc", Member.class)
-                    .setFirstResult(1)
-                    .setMaxResults(10)
+            String qlString = "select m.username, 'HELLO', true from Member m "
+                    + "where m.type = :userType";
+
+
+            List<Object[]> result = em.createQuery(qlString)
+                    .setParameter("userType", MemberType.USER)
                     .getResultList();
-            System.out.println("result.size() = " + result.size());
-            for (Member member1 : result) {
-                System.out.println("member1 = " + member1);
+
+            for (Object[] objects : result) {
+                System.out.println("objects[0] = " + objects[0]);
+                System.out.println("objects[1] = " + objects[1]);
+                System.out.println("objects[2] = " + objects[2]);
             }
-            
+
 
             tx.commit();
         } catch (Exception e) {

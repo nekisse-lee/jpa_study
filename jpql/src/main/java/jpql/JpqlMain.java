@@ -1,6 +1,8 @@
 package jpql;
 
 
+import jpql.domain.Member;
+
 import javax.persistence.*;
 
 public class JpqlMain {

@@ -1,6 +1,9 @@
 package jpql;
 
 
+import jpql.domain.Member;
+import jpql.domain.MemberDTO;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;

@@ -1,4 +1,4 @@
-package jpql;
+package jpql.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,6 +15,7 @@ public class Product {
     private int price;
 
     private int stockAmount;
+
 
     public Long getId() {
         return id;
